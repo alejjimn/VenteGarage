@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Maxim - Modern One Page Bootstrap Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+    <meta charset="utf-8">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="color/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- =======================================================
+    Theme Name: Maxim
+    Theme URL: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+	======================================================= -->
+
+</head>
+
+<body>
+<h4 class="latest-text">Liste des filmes</h4>
+	<div class="ads-grid_shop container">
+		<div class="shop_inner_inf">
+                      <div class="checkout-right-basket"> 
+                             <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#newModal">Ajouter</button>
+                    </div>
+  	<div class="privacy about"> 
+  			<div class="col-md-8 address_form"> 
+                      <!-- Modal -->
+                        <div class="modal fade" id="newModal" role="dialog">
+                          <div class="modal-dialog">
+   
+                            <!-- Modal content-->
+                            <div class="modal-content"> 
+                              <div class="modal-header"> 
+                                <button type="button" class="close" data-dismiss="modal">&times</button> 
+                                <h3 class="modal-title">Information du film</h3>
+                              </div>
+                              <div class="modal-body"> 
+                                   <div class="col-md-12 single-right-grid-right"> 
+                                		<form class="form" id="formEnreg" enctype="multipart/form-data" action="" method="POST" onSubmit=""> 
+                                        <div class="form-group">
+                                            Titre:&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control" type="text" id="titre_film" name="titre_film" size="50" required>
+                                        </div>
+                                        <div class="form-group">
+                                        Prix:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control" type="number" step="0.01" id="prix" name="prix" required> 
+                                        </div>
+                                        <div class="form-group">
+                                        Genre:&nbsp;<select class="form-control col-sd-3" id="genre" name="genre">
+                                           <option value="Action">Action</option>
+                                           <option value="Comedy">Comedy</option>
+                                           <option value="Drame">Drame</option>
+                                           <option value="Enfants">Enfants</option> 
+                                           <option value="Science Fiction">Science Fiction</option> 
+                                         </select>
+                                        </div>
+                                        <div class="form-group">
+                                            Duree:&nbsp;<input type="number" id="duree" class="form-control" name="duree" required>
+                                        </div>
+                                        <div class="form-group">
+                                            Realisateur:&nbsp;&nbsp;<input  type="text" class="form-control" id="realisateur" name="realisateur" required>
+                                        </div>
+                                        <div class="form-group">
+                                            Pochette:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" id="pochette" name="pochette">
+                                        </div>
+                                        <div class="form-group">
+                                            Description:&nbsp;<input type="text" class="form-control" id="description"  name="description">
+                                        </div>
+                                        <div class="modal-footer">
+                                           <input type="submit" class="btn btn-theme" value="Envoyer">
+                                           <input type="button" class="btn btn-theme" data-dismiss="modal" value="Cancel">
+                                        </div>
+                                   </form>
+                                   </div>
+                                </div>
+                             </div>
+                           </div>
+                         </div>
+    
+    <div class="modal fade" id="modifyModal" role="dialog">
+                                <div class="modal-dialog">
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times</button>
+                                      <h3 class="modal-title">Information du film</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                         <div class="col-md-12 single-right-grid-right">
+                                      		<form class="form" id="formModify" enctype="multipart/form-data" action="" method="POST" onSubmit=""> 
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" id="id_film_mod" name="id_film_mod" style="visibility:hidden" required>
+                                            </div>
+                                            <div class="form-group">
+                                                Titre:&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control" type="text" id="titre_film_mod" name="titre_film_mod" required>
+                                            </div>
+                                            <div class="form-group">
+                                                Prix: &nbsp;$ <input class="form-control" type="number" step="0.01" id="prix_mod" name="prix_mod" required>
+                                            </div>
+                                            <div class="form-group">                                                                               Genre:&nbsp;<select class="form-control col-sd-3" id="genre_mod" name="genre_mod">
+                                                <option value="Action">Action</option>
+                                                <option value="Comedy">Comedy</option>
+                                                <option value="Drame">Drame</option>
+                                                <option value="Enfants">Enfants</option>
+                                                <option value="Science Fiction">Science Fiction</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                Duree:&nbsp;<input type="number" id="duree_mod" class="form-control" name="duree_mod" required>
+                                            </div>
+                                            <div class="form-group">
+                                                Realisateur:&nbsp;<input  type="text" class="form-control" id="realisateur_mod" name="realisateur_mod" required>
+                                            </div>
+                                            <div class="form-group">
+                                                Pochette:<p id="srctxt" name="srctxt"></p><input class="form-control" type="file" id="pochette_mod" name="pochette_mod">
+                                            </div>
+                                            <div class="form-group">
+                                                Description:&nbsp;<input width="90%" maxlength="255" type="textarea" class="form-control" id="description_mod"  name="description_mod">
+                                            </div>
+                                            <div class="modal-footer">
+                                                    <input type="submit" class="btn btn-theme" value="Modifier">
+                                                    <button type="button" class="btn btn-theme" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                    </form>
+                                    </div>
+                                </div>
+                              </div>
+     
+                            </div>
+                          </div>
+                          <div class="modal fade" id="delModal" role="dialog">
+                            <div class="modal-dialog">
+     
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <form id="formEnlever" action="../serveur/enlever.php" method="POST" onSubmit="return validerNum('numE');">
+                                      <p class="modal-text">Êtes-vous sûr de vouloir supprimer l'enregistrement?</p> 
+                                        <p class="modal-text">Film No:&nbsp;<input type="text" id="numE" name="num"  style="border: none;background-color:white;" readonly></p> 
+                                        <div class="modal-footer">
+                                            <input type="submit" class="btn btn-theme" value="OK">
+                                            <button type="button" class="btn btn-theme" data-dismiss="modal">Cancel</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+    
+                          </div>
+                        </div>
+    			
+    		<div class="checkout-right">
+	                 <BR><BR><BR><BR><BR><BR> 
+    			<table class="timetable_sub">
+    				<thead>
+    					<tr>
+    						<th>No.</th>
+    						<th>Pochette</th>
+    						<th>Titre</th>
+    						<th>Description</th>
+    						<th>Réalisateur</th>
+                              <th>Catégorie</th>
+                              <th>Durée (min)</th>
+    						<th>Prix</th>
+    						<th>Gestion</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+                        <tr class='rem1'>
+                            <td id="id_film" class='invert'>idfilm</td>
+                            <td id="pochette" class='invert'>Pochette</td>
+                            <td id="titre_film" class='invert'>Rambo III</td>
+                            <td class='invert'>Rambo N Description</td>
+                            <td class='invert'>Silvester Stallone</td>
+                            <td class='invert'>Action</td>
+                            <td class='invert'>120</td class='invert'>
+                            <td>$14.5</td>
+                            <td class=\"invert\">
+                            <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#modifyModal" onclick="document.getElementById('id_film_mod').value=1.";document.getElementById('titre_film_mod').value='".myTitle."';document.getElementById('prix_mod').value=5">&nbsp;&nbsp;Modifier&nbsp;&nbsp;</button>
+                                <br><br>
+                                <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#delModal" onclick="document.getElementById('numE').value=10";\">Supprimer</button> 
+                            </td>
+                        </tr> 
+    
+                    </tbody>
+    				</table>
+    				</div>		
+            <br>
+            <hr>
+   
+</body>
+
+</html>

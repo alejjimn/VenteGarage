@@ -1,0 +1,307 @@
+/*
+    Search Menu Style (on the map)
+    Author: Alejandra Jimenez
+*/
+
+
+.well-searchbox {
+  text-align: center;
+  min-height: 20px;
+  min-width: 400px;
+  padding: 19px;
+  position: absolute;
+  z-index: 80;
+  top: 10%;
+  left:6%;
+  right: 6%;
+  background: rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.well-searchbox label {
+    color: #fff;
+}
+
+#produit_txt {
+    width: 20%;
+    padding: 14px 20px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-family:'Open Sans', Arial, sans-serif;
+}
+
+    
+.btn-search {
+	  background: #424242;
+	  border-radius: 0;
+	  color: #fff;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #1c1c1c;
+	}
+	.btn-search:link, .btn-search:visited {
+	  color: #fff;
+	}
+	.btn-search:active, .btn-search:hover {
+	  background: #1c1c1c;
+	  color: #fff;
+	}
+
+.navbar-inverse .navbar-inner {
+  background-color: #0D4D4D;
+  background-image: -moz-linear-gradient(top, #0D4D4D, #0D4D4D);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0D4D4D), to(#0D4D4D));
+  background-image: -webkit-linear-gradient(top, #0D4D4D, #0D4D4D);
+  background-image: -o-linear-gradient(top, #0D4D4D, #0D4D4D);
+  background-image: linear-gradient(to bottom, #000000, #000000); /* Menu colors */
+  background-repeat: repeat-x;
+  border-color: #0D4D4D;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+}
+/*
+	Maps
+*/
+#map {
+        height: 700px;
+      }
+/* The location pointed to by the popup tip. */
+  .popup-tip-anchor {
+	height: 0;
+	position: absolute;
+	/* The max width of the info window. */
+	width: 200px;
+  }
+  /* The bubble is anchored above the tip. */
+  .popup-bubble-anchor {
+	position: absolute;
+	width: 100%;
+	bottom: /* TIP_HEIGHT= */ 8px;
+	left: 0;
+  }
+  /* Draw the tip. */
+  .popup-bubble-anchor::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* Center the tip horizontally. */
+	transform: translate(-50%, 0);
+	/* The tip is a https://css-tricks.com/snippets/css/css-triangle/ */
+	width: 0;
+	height: 0;
+	/* The tip is 8px high, and 12px wide. */
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: /* TIP_HEIGHT= */ 8px solid white;
+  }
+  /* The popup bubble itself. */
+  .popup-bubble-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(-50%, -100%);
+	/* Style the info window. */
+	background-color: white;
+	padding: 5px;
+	border-radius: 5px;
+	font-family: sans-serif;
+	overflow-y: auto;
+	max-height: 60px;
+	box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+  }
+/*
+Popup style
+*/
+/* Form Module */
+.form-module {
+	position: relative;
+    background: #ffffff;
+    max-width: 400px;
+    width: 100%;
+    border-top: 5px solid #009999;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    margin:1em auto;
+}
+.form-module .toggle {
+  cursor: pointer;
+  position: absolute;
+  top: -0;
+  right: -0;
+  background:#009999;
+  width: 30px;
+  height: 30px;
+  margin: -5px 0 0;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}
+.form-module .toggle .tooltip {
+	position: absolute;
+    top: 5px;
+    right: -75px;
+    display: block;
+    background: rgba(0, 0, 0, 0.6);
+    width: auto;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+    opacity: 1;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+.form-module .toggle .tooltip:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -5px;
+  display: block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid rgba(0, 0, 0, 0.6);
+}
+.form-module .form {
+  display: none;
+  padding: 30px;
+}
+.form-module .form:nth-child(2) {
+  display: block;
+}
+.form-module h3 {
+    margin: 0 0 1.5em;
+    color: #212121;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1;
+}
+.form-module input[type="text"],.form-module input[type="password"],.form-module input[type="email"] {
+  outline: none;
+  display: block;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-weight: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  font-size:14px;
+}
+.form-module input[type="text"]:focus,.form-module input[type="password"]:focus,.form-module input[type="email"]:focus {
+  border:1px solid #C7D0F5;
+  color: #333333;
+}
+.form-module input[type="submit"] {
+	background: #919191;
+    width: 100%;
+    border: 0;
+    padding: 10px 15px;
+    color: #ffffff;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+	outline:none;
+}
+.form-module input[type="submit"]:hover {
+  background:#009999;
+}
+.form-module .cta {
+	background: #343434;
+    width: 100%;
+    padding: 15px 40px;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+}
+.form-module .cta a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+.modal-header {
+    text-align: center;
+    font-size: 2em;
+    color: #212121;
+}
+.modal-content{
+	z-index:9999;
+}
+@media (max-width: 320px){
+	.w3layouts_logo a h1 {
+		background: url(../images/1.jpg) no-repeat 61px 5px;
+		background-size: 46%;
+		font-size: 2em;
+	}
+	.modal-header {
+		font-size: 1.5em;
+	}
+	.form-module h3{
+		margin: 0 0 1em;
+		font-size: 1.1em;
+	}
+	.form-module .form {
+		padding: 15px;
+	}
+	.form-module input[type="text"], .form-module input[type="password"], .form-module input[type="email"] {
+		font-size: 13px;
+	}
+	.form-module .cta {
+		width: 100%;
+		padding: 10px 0px;
+	}
+	.form-module input[type="submit"] {
+		font-size: 14px;
+	}
+	.modal-body {
+		padding: 6px 15px;
+	}
+	.form-module {
+		margin: .5em auto;
+	}
+	.agile_mid_2_home {
+		width: 78%;
+	}
+	.nav-tabs > li {
+		float: none !important;
+	}
+	h4.latest-text {
+		font-size: 1.2em !important;
+	}
+	a.w3_play_icon span, a.w3_play_icon1 span, a.w3_play_icon2 span {
+		font-size: 2em;
+	}
+	p.fexi_header {
+		font-size: 1em;
+	}
+	.agile_tv_series_grid_right {
+		padding: 2em 1em;
+	}
+	p.fexi_header_para {
+		font-size: 13px;
+	}
+	.conjuring_w3 {
+		height: 110px;
+	}
+	.w3ls_footer_grid_right {
+		width: 55%;
+	}
+	p,.w3ls_footer_grid1_right ul li,.panel-body{
+		font-size: 13px;
+	}
+	.w3ls_footer_grid_left1 h2 {
+		font-size: 1.3em;
+	}
+	h3.head {
+		font-size: 1.8em;
+	}
+}
+/*-- //login --*/
