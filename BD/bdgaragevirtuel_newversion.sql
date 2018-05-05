@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 30 avr. 2018 à 20:43
+-- Généré le :  sam. 05 mai 2018 à 01:46
 -- Version du serveur :  5.7.17
--- Version de PHP :  7.1.3
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `bdgaragevirtuel`
 --
-CREATE DATABASE IF NOT EXISTS `bdgaragevirtuel` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `bdgaragevirtuel`;
 
 -- --------------------------------------------------------
 
@@ -35,6 +33,13 @@ CREATE TABLE `abonnements` (
   `typeAbonnement` varchar(8) CHARACTER SET latin1 NOT NULL,
   `prix` decimal(2,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `abonnements`
+--
+
+INSERT INTO `abonnements` (`idAbonnement`, `typeAbonnement`, `prix`) VALUES
+(1, 'none', '0.00');
 
 -- --------------------------------------------------------
 
@@ -51,35 +56,39 @@ CREATE TABLE `adresses` (
   `codePostal` char(7) COLLATE utf8_unicode_ci DEFAULT NULL,
   `region` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `latitude` decimal(18,9) DEFAULT NULL,
-  `longitude` decimal(18,9) DEFAULT NULL
+  `longitude` decimal(18,9) DEFAULT NULL,
+  `formatted_addr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sublocalite` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Déchargement des données de la table `adresses`
 --
 
-INSERT INTO `adresses` (`idAdresse`, `idMembre`, `numeroCivique`, `nomRue`, `ville`, `codePostal`, `region`, `latitude`, `longitude`) VALUES
-(1, 1, 12, 'Natalia Panfilii', 'Mont-Royal', '', 'QC', NULL, NULL),
-(2, 2, 12, 'Natalia Panfilii', 'Mont-Royal', '', 'QC', NULL, NULL),
-(3, 3, 23, 'Acadie', 'Montreal', 'H3R3L2', 'Qc', '45.518729500', '-73.654724700'),
-(4, 4, 25, 'Acadie', 'Laval', 'H1H1H1', 'La', NULL, NULL),
-(5, 5, 23, 'Natalia Panfilii', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700'),
-(6, 7, 12, 'Natalia', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700'),
-(7, 8, 12, 'Natalia', 'Mont-Royal', 'H3R 3L2', 'QC', '45.518729500', '-73.654724700'),
-(8, 16, 12, 'cftydryt', 'xfghxf', 'H3R-3L2', 'gfghxf', '45.518729500', '-73.654724700'),
-(9, 17, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700'),
-(10, 18, 12, 'Natalia ', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700'),
-(11, 19, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(12, 20, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700'),
-(13, 21, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(14, 22, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(15, 24, 12, 'Glengarry', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(16, 26, 23, 'acadie', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(17, 27, 11, 'Natalia', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(18, 29, 12, 'Natalia', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(19, 30, 12, 'Glengarry', 'Montreal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700'),
-(20, 31, 25, 'Acadie', 'Montreal', 'H2K2K1', 'Qc', '45.529729700', '-73.545975300'),
-(21, 32, 25, 'Hubert', 'Trois Rivier', 'H3R3L2', 'Qc', '45.518729500', '-73.654724700');
+INSERT INTO `adresses` (`idAdresse`, `idMembre`, `numeroCivique`, `nomRue`, `ville`, `codePostal`, `region`, `latitude`, `longitude`, `formatted_addr`, `sublocalite`) VALUES
+(1, 1, 12, 'Natalia Panfilii', 'Mont-Royal', '', 'QC', NULL, NULL, '', ''),
+(2, 2, 12, 'Natalia Panfilii', 'Mont-Royal', '', 'QC', NULL, NULL, '', ''),
+(3, 3, 23, 'Acadie', 'Montreal', 'H3R3L2', 'Qc', '45.518729500', '-73.654724700', '', ''),
+(4, 4, 25, 'Acadie', 'Laval', 'H1H1H1', 'La', NULL, NULL, '', ''),
+(5, 5, 23, 'Natalia Panfilii', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(6, 7, 12, 'Natalia', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(7, 8, 12, 'Natalia', 'Mont-Royal', 'H3R 3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(8, 16, 12, 'cftydryt', 'xfghxf', 'H3R-3L2', 'gfghxf', '45.518729500', '-73.654724700', '', ''),
+(9, 17, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(10, 18, 12, 'Natalia ', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(11, 19, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(12, 20, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R-3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(13, 21, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(14, 22, 12, 'Natalia Panfilii', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(15, 24, 12, 'Glengarry', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(16, 26, 23, 'acadie', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(17, 27, 11, 'Natalia', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(18, 29, 12, 'Natalia', 'Mont-Royal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(19, 30, 12, 'Glengarry', 'Montreal', 'H3R3L2', 'QC', '45.518729500', '-73.654724700', '', ''),
+(20, 31, 25, 'Acadie', 'Montreal', 'H2K2K1', 'Qc', '45.529729700', '-73.545975300', '', ''),
+(21, 32, 25, 'Hubert', 'Trois Rivier', 'H3R3L2', 'Qc', '45.518729500', '-73.654724700', '', ''),
+(77, 124, 2525, 'boul rome', 'brossard', 'J4Y1P8', 'qc', '45.453777800', '-73.462928500', NULL, ''),
+(78, 125, 2525, 'boul rome', 'brossard', 'J4Y1P8', 'qc', '45.453777800', '-73.462928500', 'Brossard, QC J4Y 1P8, Canada', '');
 
 -- --------------------------------------------------------
 
@@ -97,6 +106,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`idCategorie`, `description`) VALUES
+(0, 'none'),
 (1, 'Accessoires Informatiques'),
 (2, 'Appareils electromenagers'),
 (3, 'Appareils photo et cameras'),
@@ -149,9 +159,16 @@ CREATE TABLE `evenements` (
   `idAdresse` int(8) NOT NULL,
   `idProduit` int(8) NOT NULL,
   `dateDebut` datetime NOT NULL,
-  `dateFin` datetime NOT NULL
+  `dateFin` datetime NOT NULL,
+  `idMembre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Déchargement des données de la table `evenements`
+--
+
+INSERT INTO `evenements` (`idEvenement`, `titreEvenement`, `description`, `idAdresse`, `idProduit`, `dateDebut`, `dateFin`, `idMembre`) VALUES
+(1, 'Vente de garage Brossard', 'Vente de garage Brossard Description', 22, 0, '2018-05-01 00:00:00', '2018-05-08 00:00:00', 33);
 
 -- --------------------------------------------------------
 
@@ -194,7 +211,9 @@ INSERT INTO `membres` (`idMembre`, `prenom`, `nom`, `telephone`, `dateNaissance`
 (29, 'Magdalena', 'Mariana', '5146984561', '02/03/1999', 'M', 'avatar.jpg', 'nataliapanfilii81@gmail.com', 'fdcca43175c6c3da4542836cb553cf4d2bd66b4a'),
 (30, 'Natalia', 'Jabinschi', '5147894561', '02/12/1789', 'M', 'd64136b42cc73a27f004873d2f3aa6901bf08ae7.jpg', 'natynela@yahoo.com', 'fdcca43175c6c3da4542836cb553cf4d2bd66b4a'),
 (31, 'Lipceanu', 'Mariana', '51478945623', '02/05/1988', 'F', 'e299e7535a72426c3bb6eaec06345f3d85312f85.jpg', 'mariana@yahoo.com', 'fdcca43175c6c3da4542836cb553cf4d2bd66b4a'),
-(32, 'Alexandra', 'Jambina', '5147894561', '02/05/1789', 'F', '4fb541d7f2b1ead372ab3221e17956888dd8a64e.jpg', 'alexandra@yahoo.com', 'fdcca43175c6c3da4542836cb553cf4d2bd66b4a');
+(32, 'Alexandra', 'Jambina', '5147894561', '02/05/1789', 'F', '4fb541d7f2b1ead372ab3221e17956888dd8a64e.jpg', 'alexandra@yahoo.com', 'fdcca43175c6c3da4542836cb553cf4d2bd66b4a'),
+(124, 'Ale', 'Jim', '2222222222', '20/01/2000', 'M', 'avatar.jpg', 'alejjimn@gmail.com', '1f98a0fa07eca41de3b4090407a7c39c952db5aa'),
+(125, 'Ale', 'Jim', '2222222222', '20/01/2000', 'M', 'avatar.jpg', 'alejjimn2@gmail.com', '7f6a6a8c3708cb39eecdcf3c1449ae6fc5692c5c');
 
 -- --------------------------------------------------------
 
@@ -224,20 +243,13 @@ CREATE TABLE `produits` (
   `idMembre` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `vendeurs`
+-- Déchargement des données de la table `produits`
 --
 
-CREATE TABLE `vendeurs` (
-  `idMembre` int(8) NOT NULL,
-  `idAbonnement` int(8) NOT NULL,
-  `idAdresse` int(8) NOT NULL,
-  `idEvenement` int(8) NOT NULL,
-  `idProduit` int(8) NOT NULL,
-  `actif` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+INSERT INTO `produits` (`idProduit`, `nomProduit`, `description`, `quantite`, `idCategorie`, `idMembre`) VALUES
+(1, 'bycicle', 'beautiful bycicle', 1, 14, 33),
+(16, 'none', 'none', 0, 0, 33);
 
 --
 -- Index pour les tables déchargées
@@ -274,7 +286,8 @@ ALTER TABLE `connexions`
 --
 ALTER TABLE `evenements`
   ADD PRIMARY KEY (`idEvenement`),
-  ADD KEY `Evenements_FK` (`idAdresse`);
+  ADD KEY `Evenements_FK` (`idAdresse`),
+  ADD KEY `Produits_FK_idMembre` (`idMembre`);
 
 --
 -- Index pour la table `membres`
@@ -299,15 +312,6 @@ ALTER TABLE `produits`
   ADD KEY `Produits_FK_idCategorie` (`idCategorie`);
 
 --
--- Index pour la table `vendeurs`
---
-ALTER TABLE `vendeurs`
-  ADD KEY `Vendeurs_FK_idMembre` (`idMembre`),
-  ADD KEY `Vendeurs_FK_idAbonnement` (`idAbonnement`),
-  ADD KEY `Vendeurs_FK_idEvenement` (`idEvenement`),
-  ADD KEY `Vendeurs_FK_idProduit` (`idProduit`);
-
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -315,12 +319,12 @@ ALTER TABLE `vendeurs`
 -- AUTO_INCREMENT pour la table `abonnements`
 --
 ALTER TABLE `abonnements`
-  MODIFY `idAbonnement` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAbonnement` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `adresses`
 --
 ALTER TABLE `adresses`
-  MODIFY `idAdresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idAdresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
@@ -330,12 +334,12 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT pour la table `evenements`
 --
 ALTER TABLE `evenements`
-  MODIFY `idEvenement` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEvenement` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `idMembre` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `idMembre` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 --
 -- AUTO_INCREMENT pour la table `photoproduits`
 --
@@ -345,12 +349,7 @@ ALTER TABLE `photoproduits`
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `idProduit` int(8) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `vendeurs`
---
-ALTER TABLE `vendeurs`
-  MODIFY `idMembre` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProduit` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Contraintes pour les tables déchargées
 --

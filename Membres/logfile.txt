@@ -1,0 +1,14 @@
+
+addcomp:5
+Status:OK lat:45.4537778 lon:-73.4629285 addr:Brossard, QC J4Y 1P8, Canada postalcode:J4Y 1P8 sublocalite:
+addcomp:5
+Status:OK lat:45.4537778 lon:-73.4629285 addr:Brossard, QC J4Y 1P8, Canada postalcode:J4Y 1P8 sublocalite:
+Membre bien enregistre!
+addcomp:5
+Status:OK lat:45.4537778 lon:-73.4629285 addr:Brossard, QC J4Y 1P8, Canada postalcode:J4Y 1P8 sublocalite:
+Membre bien enregistre!
+addcomp:5
+Status:OK lat:45.4537778 lon:-73.4629285 addr:Brossard, QC J4Y 1P8, Canada postalcode:J4Y 1P8 sublocalite:
+addcomp:5
+Status:OK lat:45.4537778 lon:-73.4629285 addr:Brossard, QC J4Y 1P8, Canada postalcode:J4Y 1P8 sublocalite:
+Membre bien enregistre!

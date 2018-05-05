@@ -51,7 +51,18 @@ var membreVue=function(reponse){
 		case "modifier" :
 		case "connecter" :
 			$('#messages').html(reponse.msg);
-			setTimeout(function(){ $('#messages').html(""); }, 5000);
+            $('#newmodal').modal('show');
+            $(function(){
+                $('#newmodal').on('show.bs.modal', function(){
+                    var newmodal = $(this);
+                    clearTimeout(newmodal.data('hideInterval'));
+                    newmodal.data('hideInterval', setTimeout(function(){
+                        newmodal.modal('hide');
+                    }, 3000));
+                });
+            });
+            
+			//setTimeout(function(){ $('#messages').html(""); }, 5000);
 		break;
 		case "connecterUser" :
 			profil(reponse.connecterUser);
